@@ -16,27 +16,27 @@ package part1
 
 fun main(args: Array<String>) {
 
-    var value = 0
-    var localValue = 20
-
-    val result = { a: Int ->
-        value += 1
-        localValue += 1
-        val c = value + localValue + a
-        println(c)
-
-    }
-
-    result(30)
-
-    println(value)
-    println(localValue)
-
-
-    //Lambda 表达式的完整语法形式如下：
-    val sum: (a: Int, b: Int) -> Int = { a: Int, b: Int -> a + b }
-    val sum1: (Int, Int) -> Int = { a, b -> a + b }
-
+//    var value = 0
+//    var localValue = 20
+//
+//    val result = { a: Int ->
+//        value += 1
+//        localValue += 1
+//        val c = value + localValue + a
+//        println(c)
+//
+//    }
+//
+//    result(30)
+//
+//    println(value)
+//    println(localValue)
+//
+//
+//    //Lambda 表达式的完整语法形式如下：
+//    val sum: (a: Int, b: Int) -> Int = { a: Int, b: Int -> a + b }
+//    val sum1: (Int, Int) -> Int = { a, b -> a + b }
+//
 
     val c = C()
     val d = c.test(1) { a -> a + 1 }
@@ -50,5 +50,13 @@ class C {
             return a + b(a)
         }
     }
+
+    fun test1(a: Int, b: (Int) -> Int): () -> Int {
+        return {
+            a + b(a)
+        }
+    }
+
+
 }
 
